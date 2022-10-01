@@ -3,8 +3,8 @@ const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const WorkboxPlugin = require('workbox-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
+// const WorkboxPlugin = require('workbox-webpack-plugin');
+// const ESLintPlugin = require('eslint-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 const path = require('path');
@@ -138,23 +138,23 @@ module.exports = (_env, argv) => {
                 // Prevents Webpack from emitting invalid code and showing compilation errors in an overlay when running a development server.
                 async: false,
             }),
-            new WorkboxPlugin.GenerateSW({
-                // Specifies the output filename for the generated worker file.
-                swDest: 'service-worker.js',
-                // Instructs the service worker to take control of the page immediately after registration and begin serving cached resources instead of waiting for the next page reload.
-                clientsClaim: true,
-                // Makes updates to the service worker take effect immediately instead of waiting for all active instances to be destroyed.
-                skipWaiting: true,
-            }),
+            // new WorkboxPlugin.GenerateSW({
+            //     // Specifies the output filename for the generated worker file.
+            //     swDest: 'service-worker.js',
+            //     // Instructs the service worker to take control of the page immediately after registration and begin serving cached resources instead of waiting for the next page reload.
+            //     clientsClaim: true,
+            //     // Makes updates to the service worker take effect immediately instead of waiting for all active instances to be destroyed.
+            //     skipWaiting: true,
+            // }),
             isDevelopment && new webpack.ProgressPlugin(),
-            isDevelopment &&
-                new ESLintPlugin({
-                    extensions: ['ts', 'tsx', 'js', 'jsx'],
-                    fix: false,
-                    emitError: true,
-                    emitWarning: true,
-                    failOnError: true,
-                }),
+            // isDevelopment &&
+            //     new ESLintPlugin({
+            //         extensions: ['ts', 'tsx', 'js', 'jsx'],
+            //         fix: false,
+            //         emitError: true,
+            //         emitWarning: true,
+            //         failOnError: true,
+            //     }),
             new Dotenv(),
         ].filter(Boolean),
 
