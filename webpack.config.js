@@ -1,12 +1,13 @@
-const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const TerserWebpackPlugin = require('terser-webpack-plugin');
-// const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserWebpackPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
+const webpack = require('webpack');
+const path = require('path');
 
 module.exports = (_env, argv) => {
     const isProduction = argv.mode === 'production';
@@ -26,8 +27,8 @@ module.exports = (_env, argv) => {
             open: true,
             // Enables asset compression for faster reloads.
             compress: true,
-            // // Enables a fallback to index.html for history-based routing.
-            // historyApiFallback: true,
+            // Enables a fallback to index.html for history-based routing.
+            historyApiFallback: true,
 
             static: {
                 directory: path.join(__dirname, './'),
@@ -105,10 +106,10 @@ module.exports = (_env, argv) => {
                         name: 'static/media/[name].[hash:8].[ext]',
                     },
                 },
-                // {
-                //     test: /\.worker\.js$/,
-                //     loader: 'worker-loader',
-                // },
+                {
+                    test: /\.worker\.js$/,
+                    loader: 'worker-loader',
+                },
             ],
         },
 
@@ -137,14 +138,14 @@ module.exports = (_env, argv) => {
                 // Prevents Webpack from emitting invalid code and showing compilation errors in an overlay when running a development server.
                 async: false,
             }),
-            // new WorkboxPlugin.GenerateSW({
-            //     // Specifies the output filename for the generated worker file.
-            //     swDest: 'service-worker.js',
-            //     // Instructs the service worker to take control of the page immediately after registration and begin serving cached resources instead of waiting for the next page reload.
-            //     clientsClaim: true,
-            //     // Makes updates to the service worker take effect immediately instead of waiting for all active instances to be destroyed.
-            //     skipWaiting: true,
-            // }),
+            new WorkboxPlugin.GenerateSW({
+                // Specifies the output filename for the generated worker file.
+                swDest: 'service-worker.js',
+                // Instructs the service worker to take control of the page immediately after registration and begin serving cached resources instead of waiting for the next page reload.
+                clientsClaim: true,
+                // Makes updates to the service worker take effect immediately instead of waiting for all active instances to be destroyed.
+                skipWaiting: true,
+            }),
             isDevelopment && new webpack.ProgressPlugin(),
             isDevelopment &&
                 new ESLintPlugin({
@@ -154,53 +155,54 @@ module.exports = (_env, argv) => {
                     emitWarning: true,
                     failOnError: true,
                 }),
+            new Dotenv(),
         ].filter(Boolean),
 
-        // optimization: {
-        //     minimize: isProduction,
-        //     minimizer: [
-        //         new TerserWebpackPlugin({
-        //             terserOptions: {
-        //                 compress: {
-        //                     comparisons: false,
-        //                 },
-        //                 mangle: {
-        //                     safari10: true,
-        //                 },
-        //                 output: {
-        //                     comments: false,
-        //                     ascii_only: true,
-        //                 },
-        //                 warnings: false,
-        //             },
-        //         }),
-        //         new OptimizeCssAssetsPlugin(),
-        //     ],
-        //     splitChunks: {
-        //         chunks: 'all',
-        //         minSize: 0,
-        //         maxInitialRequests: 20,
-        //         maxAsyncRequests: 20,
-        //         cacheGroups: {
-        //             vendors: {
-        //                 test: /[\\/]node_modules[\\/]/,
-        //                 name(module, chunks, cacheGroupKey) {
-        //                     const packageName = module.context.match(
-        //                         /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-        //                     )[1];
-        //                     return `${cacheGroupKey}.${packageName.replace(
-        //                         '@',
-        //                         ''
-        //                     )}`;
-        //                 },
-        //             },
-        //             common: {
-        //                 minChunks: 2,
-        //                 priority: -10,
-        //             },
-        //         },
-        //     },
-        //     runtimeChunk: 'single',
-        // },
+        optimization: {
+            minimize: isProduction,
+            minimizer: [
+                new TerserWebpackPlugin({
+                    terserOptions: {
+                        compress: {
+                            comparisons: false,
+                        },
+                        mangle: {
+                            safari10: true,
+                        },
+                        output: {
+                            comments: false,
+                            ascii_only: true,
+                        },
+                        warnings: false,
+                    },
+                }),
+                new OptimizeCssAssetsPlugin(),
+            ],
+            splitChunks: {
+                chunks: 'all',
+                minSize: 0,
+                maxInitialRequests: 20,
+                maxAsyncRequests: 20,
+                cacheGroups: {
+                    vendors: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name(module, chunks, cacheGroupKey) {
+                            const packageName = module.context.match(
+                                /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                            )[1];
+                            return `${cacheGroupKey}.${packageName.replace(
+                                '@',
+                                ''
+                            )}`;
+                        },
+                    },
+                    common: {
+                        minChunks: 2,
+                        priority: -10,
+                    },
+                },
+            },
+            runtimeChunk: 'single',
+        },
     };
 };
