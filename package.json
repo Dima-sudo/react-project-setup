@@ -13,7 +13,7 @@
         "prepare": "husky install",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook",
-        "docker-start": "docker build . -t react-docker-app && docker run --rm -it --name app -p 8080:8080 -v pwd:/code react-docker-app"
+        "docker:start": "docker build . -t react-docker-app && docker run --rm -it --name app -p 8080:8080 react-docker-app"
     },
     "repository": {
         "type": "git",
@@ -36,6 +36,8 @@
         "@babel/preset-react": "^7.18.6",
         "@babel/preset-typescript": "^7.18.6",
         "@babel/runtime": "^7.19.0",
+        "@babel/types": "^7.19.3",
+        "@jest/types": "^29.1.2",
         "@storybook/addon-actions": "^6.5.12",
         "@storybook/addon-essentials": "^6.5.12",
         "@storybook/addon-interactions": "^6.5.12",
@@ -48,6 +50,7 @@
         "@testing-library/react": "^13.4.0",
         "@types/jest": "^29.1.0",
         "@types/lodash": "^4.14.186",
+        "@types/prettier": "^2.7.1",
         "@types/react": "^18.0.21",
         "@types/react-dom": "^18.0.6",
         "@types/react-router": "^5.1.19",
@@ -90,13 +93,22 @@
         "worker-loader": "^3.0.8"
     },
     "dependencies": {
+        "@emotion/react": "^11.10.4",
+        "@emotion/styled": "^11.10.4",
+        "@fontsource/roboto": "^4.5.8",
         "@hookform/resolvers": "^2.9.8",
+        "@mui/icons-material": "^5.10.6",
+        "@mui/material": "^5.10.7",
         "axios": "^0.27.2",
         "browserslist": "^4.21.4",
+        "i18next": "^21.9.2",
+        "i18next-browser-languagedetector": "^6.1.5",
+        "i18next-http-backend": "^1.4.4",
         "lodash": "^4.17.21",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "react-hook-form": "^7.36.1",
+        "react-i18next": "^11.18.6",
         "react-query": "^3.39.2",
         "react-router-dom": "^6.4.1",
         "webpack": "^5.74.0",

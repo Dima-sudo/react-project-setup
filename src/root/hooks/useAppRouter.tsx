@@ -1,8 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { ReactNode } from 'react';
+import React, { ReactNode, lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import { Layout, Error, Home } from '../../pages';
+import { Layout, Error } from '../../pages';
+
+const Home = lazy(() => import('../../pages/Home/Home'));
 
 interface Route {
     path: string;
@@ -12,12 +14,26 @@ interface Route {
 }
 
 const useAppRouter = () => {
+    const routeData = [
+        {
+            path: '/',
+            element: <Home />,
+        },
+    ];
+
     const routes: Route[] = [
         {
             path: '/',
             element: <Layout />,
             errorElement: <Error />,
-            children: [{ path: '/', element: <Home /> }],
+            children: routeData.map(({ path, element }) => ({
+                path,
+                element: (
+                    <Suspense fallback={<div>Loading...</div>}>
+                        {element}
+                    </Suspense>
+                ),
+            })),
         },
     ];
 
