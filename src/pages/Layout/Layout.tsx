@@ -4,8 +4,10 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import ErrorBoundaryFallbackComponent from '../../components/ErrorBoundary/ErrorBoundary';
 
+import * as S from './Layout.style';
+
 const Layout = () => (
-    <main>
+    <S.Main>
         <ErrorBoundary
             FallbackComponent={ErrorBoundaryFallbackComponent}
             onReset={() => {
@@ -16,7 +18,7 @@ const Layout = () => (
             <Outlet />
             <footer>Footer</footer>
         </ErrorBoundary>
-    </main>
+    </S.Main>
 );
 
 export default Layout;

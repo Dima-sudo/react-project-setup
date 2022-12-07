@@ -3,7 +3,7 @@ import { mediaQueries } from './media';
 import { params } from './params';
 import { shadows } from './shadows';
 
-interface Theme {
+export interface ITheme {
     colors: Record<string, string>;
     shadows: {
         boxShadows: Record<string, string>;
@@ -13,4 +13,4 @@ interface Theme {
     params: Record<string, string>;
 }
 
-export const theme: Theme = { colors, shadows, mediaQueries, params };
+export const theme: ITheme = { colors, shadows, mediaQueries, params };

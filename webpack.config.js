@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const WorkboxPlugin = require('workbox-webpack-plugin');
-// const ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const webpack = require('webpack');
 const path = require('path');
@@ -147,14 +147,14 @@ module.exports = (_env, argv) => {
             //     skipWaiting: true,
             // }),
             isDevelopment && new webpack.ProgressPlugin(),
-            // isDevelopment &&
-            //     new ESLintPlugin({
-            //         extensions: ['ts', 'tsx', 'js', 'jsx'],
-            //         fix: false,
-            //         emitError: true,
-            //         emitWarning: true,
-            //         failOnError: true,
-            //     }),
+            isDevelopment &&
+                new ESLintPlugin({
+                    extensions: ['ts', 'tsx', 'js', 'jsx'],
+                    fix: false,
+                    emitError: true,
+                    emitWarning: true,
+                    failOnError: true,
+                }),
             new Dotenv(),
         ].filter(Boolean),
 
