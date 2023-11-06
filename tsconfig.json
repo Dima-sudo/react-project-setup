@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "allowJs": true,
+        "noEmit": true,
+        "outDir": "build",
+        "jsx": "react-jsx",
+        "isolatedModules": false,
+        "esModuleInterop": true,
+        "resolveJsonModule": true,
+        "target": "es5",
+        "module": "esnext",
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "typeRoots": ["node_modules/@types"],
+        "lib": ["dom", "esnext"],
+        "noImplicitAny": true,
+        "noImplicitThis": true,
+        "strictNullChecks": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitOverride": true
+    },
+    "include": ["src/**/*", "public/i18n"],
+    "exclude": ["node_modules"]
+}

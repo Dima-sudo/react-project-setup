@@ -1,0 +1,167 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests SideMenu component functionality Snapshots component 1`] = `
+<div
+  class="css-1087ewh"
+  data-testid="sidemenu-main__container"
+>
+  <div
+    class="css-tzo0h9"
+    data-testid="sidemenu-top__container"
+  >
+    <div
+      class="css-rw3fwr"
+      data-testid="sidemenu-top__appname"
+    >
+      <div
+        style="opacity: 0; transform: translateX(-20px) translateZ(0);"
+      >
+        FW Optimization
+      </div>
+      <button
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-1uvutay-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="sidemenu-toggle__button"
+        fill="#575F6E"
+        height="1.5rem"
+        tabindex="0"
+        type="button"
+        width="1.5rem"
+      >
+        <svg
+          fill="none"
+          height="31"
+          viewBox="0 0 31 31"
+          width="35"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            clip-path="url(#clip0_486_4805)"
+          >
+            <path
+              d="M13.125 7.75L21.875 15.5L13.125 23.25"
+              stroke="#667085"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-5noyqf-MuiButtonBase-root-MuiButton-root"
+        data-testid="sidemenu-document__button"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="css-tcyb2d"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="AddIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </div>
+        New Document
+         
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Tests SideMenu component functionality Snapshots component 2`] = `
+<div
+  class="css-1087ewh"
+  data-testid="sidemenu-main__container"
+>
+  <div
+    class="css-tzo0h9"
+    data-testid="sidemenu-top__container"
+  >
+    <div
+      class="css-rw3fwr"
+      data-testid="sidemenu-top__appname"
+    >
+      <div
+        style="opacity: 0; transform: translateX(-20px) translateZ(0);"
+      >
+        FW Optimization
+      </div>
+      <button
+        class="MuiButtonBase-root MuiIconButton-root MuiIconButton-colorInherit MuiIconButton-sizeMedium css-1uvutay-MuiButtonBase-root-MuiIconButton-root"
+        data-testid="sidemenu-toggle__button"
+        fill="#575F6E"
+        height="1.5rem"
+        tabindex="0"
+        type="button"
+        width="1.5rem"
+      >
+        <svg
+          fill="none"
+          height="31"
+          viewBox="0 0 31 31"
+          width="35"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g
+            clip-path="url(#clip0_486_4805)"
+          >
+            <path
+              d="M13.125 7.75L21.875 15.5L13.125 23.25"
+              stroke="#667085"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+        </svg>
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+    <div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium css-5noyqf-MuiButtonBase-root-MuiButton-root"
+        data-testid="sidemenu-document__button"
+        tabindex="0"
+        type="button"
+      >
+        <div
+          class="css-tcyb2d"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-i4bv87-MuiSvgIcon-root"
+            data-testid="AddIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </div>
+        New Document
+         
+        <span
+          class="MuiTouchRipple-root css-8je8zh-MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,6 @@
+dist
+node_modules
+public
+.husky
+.gitignore
+/src/root/root.component

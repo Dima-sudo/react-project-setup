@@ -1,0 +1,15 @@
+node_modules
+.dockerignore
+Dockerfile
+.git
+*.log
+.storybook
+.husky
+
+# Tests are irrelevant for production
+**/*.spec
+**/*.spec.ts
+**/*.spec.tsx
+**/*.test
+**/*.test.ts
+**/*.test.tsx
